@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap');
+
 .navbar {
     position: fixed;
     top: 0;
@@ -7,6 +9,8 @@
     ;
     padding: 10px 0;
     z-index: 1000;
+    font-family: Comfortaa, sans-serif;
+
   }
   
   .nav-links {
@@ -14,19 +18,27 @@
     justify-content: center;
     gap: 20px;
     list-style: none;
+    font-family: Comfortaa, sans-serif;
+
   }
   
   .nav-links li {
     margin: 0;
+    font-family: Comfortaa, sans-serif;
+
   }
   
   .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
+    font-family: Comfortaa, sans-serif;
+
   }
   
   .nav-links a:hover {
     color: #4285f4;
+    font-family: Comfortaa, sans-serif;
+
   }
   

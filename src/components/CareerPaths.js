@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './styles/CareerPaths.css';
 
 const careerPaths = {
   "Frontend Developer": {
@@ -23,8 +24,6 @@ const careerPaths = {
     ],
     videoUrl: "https://www.youtube.com/embed/f0kMQF0kqzk?si=yv7RCbOf8QAUpgzZ",
     videoTitle: "Day in the Life of a Front End SWE",
-
-    
   },
   "Backend Developer": {
     jobDescription:
@@ -62,6 +61,8 @@ const careerPaths = {
       "Managing authentication and authorization",
       "Working with cloud infrastructure",
     ],
+    videoUrl: "https://www.youtube.com/embed/aRPOYPJPCho?si=mlCMeYzc_xV5svT",
+    videoTitle: "Day in the Life of a Back End SWE",
   },
   "DevOps Engineer": {
     jobDescription:
@@ -101,6 +102,8 @@ const careerPaths = {
       "Managing cloud resources",
       "Managing system and application upgrades",
     ],
+    videoUrl: "https://www.youtube.com/embed/TFH3THol7-c?si=sxJcAaG_A9XIIiHQ",
+    videoTitle: "Day in the Life of a DevOps Engineer",
   },
   "Data Scientist": {
     jobDescription:
@@ -138,6 +141,8 @@ const careerPaths = {
       "Developing algorithms to automate decision-making",
       "Working with big data platforms",
     ],
+    videoUrl: "https://www.youtube.com/embed/xC-c7E5PK0Y?si=--B8ddYcdFvsvUwD",
+    videoTitle: "Day in the Life of a Back End SWE",
   },
   "Cybersecurity Specialist": {
     jobDescription:
@@ -173,6 +178,8 @@ const careerPaths = {
       "Educating the team on best security practices",
       "Ensuring compliance with data protection regulations",
     ],
+    videoUrl: "https://www.youtube.com/embed/yki0EnRox6s?si=P_XgKvilijDRvWat",
+    videoTitle: "Day in the Life of a Back End SWE",
   },
   "AI/ML Engineer": {
     jobDescription:
@@ -207,6 +214,8 @@ const careerPaths = {
       "Collaborating with data scientists for model validation",
       "Deploying models to production",
     ],
+    videoUrl: " https://www.youtube.com/embed/4kXecGkdw4E?si=C2oqIZBw6SNYcasr",
+    videoTitle: "Day in the Life of a Back End SWE",
   },
   "Product Manager": {
     jobDescription:
@@ -250,6 +259,8 @@ const careerPaths = {
       "Prioritizing features based on business value",
       "Tracking key performance indicators (KPIs)",
     ],
+    videoUrl: " https://www.youtube.com/embed/Dnh0jP-GA0o?si=7YfTuJQxINVEWmc3",
+    videoTitle: "Day in the Life of a Back End SWE",
   },
 };
 
@@ -344,4 +355,3 @@ const CareerPaths = () => {
 };
 
 export default CareerPaths;
-
