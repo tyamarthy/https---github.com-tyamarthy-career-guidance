@@ -1,0 +1,120 @@
+/* Global container */
+.mentorship-page {
+    padding: 40px 20px;
+    background-color:#0C3E5D;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Heading */
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #fff;
+  }
+  
+  /* Mentor List Container */
+  .mentor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+  }
+  
+  /* Individual Mentor Cards */
+  .mentor-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 100%;
+    max-width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .mentor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Mentor Info Section */
+  .mentor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mentor-info h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #495057;
+  }
+  
+  .mentor-info p {
+    font-size: 1em;
+    color: #6c757d;
+    margin-bottom: 8px;
+  }
+  
+  .mentor-info p span {
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  /* Skills and Availability */
+  .mentor-info .skills,
+  .mentor-info .availability {
+    font-size: 1em;
+    color: #007bff;
+    margin-top: 8px;
+  }
+  
+  .mentor-info .skills {
+    font-style: italic;
+  }
+  
+  .mentor-info .availability {
+    font-weight: 600;
+  }
+  
+  /* No Mentors Available */
+  .no-mentors {
+    font-size: 1.2em;
+    color: #dc3545;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  /* Responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .mentor-card {
+      padding: 20px;
+    }
+  
+    .mentor-info h3 {
+      font-size: 1.6em;
+    }
+  
+    .mentor-info p {
+      font-size: 0.9em;
+    }
+
+    .send-email-btn {
+        background-color: #4CAF50; /* Green */
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      
+      .send-email-btn:hover {
+        background-color: #0C3E5D;
+      }
+      
+  }
+  

@@ -1,0 +1,71 @@
+/* General Dashboard styles */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-btn {
+    display: block;
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .sidebar-btn:hover {
+    background-color: #254c57; /* Darker background on hover */
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .content-card {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .content-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-card-img {
+    max-width: 55%; /* Ensure image fits within the container */
+    height: auto;    /* Maintain aspect ratio */
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image covers the area of the container */
+  }
+  
+  .content-card p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
