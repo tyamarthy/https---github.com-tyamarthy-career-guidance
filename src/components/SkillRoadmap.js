@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './styles/skillmap.css';
+import Confetti from 'react-confetti';
 
 const SkillRoadmap = () => {
   const [selectedTrack, setSelectedTrack] = useState("");
   const [checkedSteps, setCheckedSteps] = useState([]);
   const [hoveredStep, setHoveredStep] = useState(null);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
+  const [isConfettiVisible, setIsConfettiVisible] = useState(false);
 
   const handleTrackChange = (event) => {
     setSelectedTrack(event.target.value);
@@ -116,8 +118,17 @@ const SkillRoadmap = () => {
   // Calculate progress based on checked steps
   const progress = (checkedSteps.length / (trackDescriptions[selectedTrack]?.length || 1)) * 100;
 
+  useEffect(() => {
+    if (progress === 100) {
+      setIsConfettiVisible(true);
+      setTimeout(() => setIsConfettiVisible(false), 9000); // Hide confetti after 5 seconds
+    }
+  }, [checkedSteps, progress]);
+
   return (
     <div className="skill-roadmap-container">
+      {isConfettiVisible && <Confetti />}
+
       <h1>Skill Roadmap & Progress Tracker</h1>
 
       <div className="content-container">
