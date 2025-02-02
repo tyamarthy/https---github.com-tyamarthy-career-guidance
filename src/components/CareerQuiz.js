@@ -3,6 +3,7 @@ import { db } from '../firebase/firebaseConfig';
 import { collection, addDoc, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import './styles/CareerQuiz.css';
+import Confetti from 'react-confetti';
 
 const CareerQuiz = () => {
   const [answers, setAnswers] = useState(new Array(10).fill(0));
@@ -10,6 +11,7 @@ const CareerQuiz = () => {
   const [careerPath, setCareerPath] = useState('');
   const [pastResults, setPastResults] = useState([]);
   const [showPastResults, setShowPastResults] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const auth = getAuth();
 
   const questions = [
@@ -93,7 +95,6 @@ const CareerQuiz = () => {
     try {
       const user = auth.currentUser;
       if (user) {
-        // Fetch documents filtered by userId without ordering
         const q = query(
           collection(db, "quizResults"),
           where("userId", "==", user.uid)
@@ -102,24 +103,18 @@ const CareerQuiz = () => {
         const querySnapshot = await getDocs(q);
         const results = [];
   
-        // Loop through each document in the query snapshot
         querySnapshot.forEach((doc) => {
           const data = doc.data();
           results.push({
             id: doc.id,
             careerPath: data.careerPath,
-            timestamp: data.timestamp,  // Firestore Timestamp object
+            timestamp: data.timestamp,
             userId: data.userId,
           });
         });
   
-        // Sort results by timestamp in descending order
-        results.sort((a, b) => b.timestamp - a.timestamp);  // Sort by timestamp
-  
-        // Queue the results (i.e., store them or process them as needed)
-        console.log("Fetched results:", results);
-        setPastResults(results);  // This could be your state or queue to display
-  
+        results.sort((a, b) => b.timestamp - a.timestamp);
+        setPastResults(results);
       } else {
         console.log("User is not authenticated.");
       }
@@ -150,6 +145,7 @@ const CareerQuiz = () => {
     const path = calculateCareerPath(totalScore);
     setCareerPath(path);
     setShowResult(true);
+    setShowConfetti(true);
 
     try {
       const user = auth.currentUser;
@@ -157,9 +153,9 @@ const CareerQuiz = () => {
         await addDoc(collection(db, "quizResults"), {
           userId: user.uid,
           careerPath: path,
-          timestamp: new Date(), // This will be stored as a Firestore Timestamp
+          timestamp: new Date(),
         });
-        await fetchPastResults(); // Refresh past results after submitting
+        await fetchPastResults();
       }
     } catch (error) {
       console.error("Error saving result:", error);
@@ -170,10 +166,13 @@ const CareerQuiz = () => {
     setAnswers(new Array(10).fill(0));
     setShowResult(false);
     setCareerPath('');
+    setShowConfetti(false); // Reset confetti when quiz is reset
+
   };
 
   return (
     <div className="career-quiz-container">
+      {showConfetti && <Confetti />}
       <div className="quiz-content">
         <h1 className="quizTitle">Tech Career Path Quiz</h1>
         <p className="quiz-description">
@@ -237,8 +236,8 @@ const CareerQuiz = () => {
                   <p className="career-path">{result.careerPath}</p>
                   <p className="timestamp">
                     {result.timestamp?.toDate
-                      ? result.timestamp.toDate().toLocaleDateString() // Convert Firestore Timestamp to Date
-                      : new Date(result.timestamp.seconds * 1000).toLocaleDateString()} // Fallback for older data
+                      ? result.timestamp.toDate().toLocaleDateString()
+                      : new Date(result.timestamp.seconds * 1000).toLocaleDateString()}
                   </p>
                 </div>
               ))
