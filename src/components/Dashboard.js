@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase/firebaseConfig"; // Import Firebase auth
+import { auth } from "../firebase/firebaseConfig"; // firebase imp
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import "./styles/Dashboard.css"; 
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null); // State for authenticated user
-
+  const [user, setUser] = useState(null);
   useEffect(() => {
     // Listen for auth state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
 
-    return () => unsubscribe(); // Cleanup on unmount
+    return () => unsubscribe();
   }, []);
 
   const handleLogout = async () => {
     await signOut(auth);
-    navigate("/"); // Redirect to home after logout
+    navigate("/");
   };
 
   const navigateToPage = (page) => {
